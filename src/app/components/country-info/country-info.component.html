@@ -1,0 +1,45 @@
+<div class="" style="padding: 30px;">
+    <h3>Country Information</h3>
+    <form>
+        <div class="form-group">
+            <app-drop-down [options]="regions" [label]="'Region'" (selectedValue)="onRegionSelect($event)">
+            </app-drop-down>
+        </div>
+        <div class="form-group">
+            <app-drop-down [options]="countryList" [label]="'Country'" (selectedValue)="onCountrySelect($event)">
+            </app-drop-down>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="loadCountry()">Load Country</button>
+    </form>
+
+    <div *ngIf="countryDetails">
+        <br>
+        <h3>Country Details</h3>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td style="width: 20%;">Name</td>
+                    <td>{{countryDetails?.name}}</td>
+                </tr>
+                <tr>
+                    <td>Capital,</td>
+                    <td>{{countryDetails?.capital}}</td>
+                </tr>
+                <tr>
+                    <td>Population</td>
+                    <td>{{countryDetails?.population}}</td>
+                </tr>
+                <tr>
+                    <td>Currencies</td>
+                    <td>
+                        <div *ngFor="let currency of countryDetails?.currencies"> {{currency.code}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Flag</td>
+                    <td><img style="height: 100px;width: 100px;" [src]="countryDetails?.flag"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+    <label for="ddpSelect">{{label}}</label>
+    <select id="ddpSelect" name="ddpSelect" class="form-control  col-md-4" #ddpSelect
+        (change)="selectedValue.emit(ddpSelect.value)">
+        <option [value]="''">Select</option>
+        <option [value]="option.id" *ngFor="let option of options">{{option.value}}</option>
+    </select>
