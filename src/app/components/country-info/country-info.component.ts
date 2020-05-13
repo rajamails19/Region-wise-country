@@ -37,6 +37,7 @@ export class CountryInfoComponent {
           this.store.dispatch(new CountryAdd(countryList));
         });
       } else {
+        this.countryList = countryObject.countryList;
       }
     }
   }
